@@ -1,0 +1,40 @@
+﻿@{
+}
+
+@model BooksViewModel
+
+<div class="container">
+    <h1>Fake Amazon</h1>
+    <h2>Books</h2>
+    <div class="row">
+        @foreach (Book b in Model.Books)
+        {
+            <div class="col-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@b.Title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@b.Author</h6>
+                        <ul>
+                            <li>Publisher: @b.Publisher</li>
+                            <li>ISBN: @b.Isbn</li>
+                            <li>Classification/Category: @b.Classification/@b.Category</li>
+                            <li>Number of Pages: @b.PageCount</li>
+                            <li>Price: $@b.Price</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div page-model="@Model.PageInfo" page-action="Index">
+
+    </div>
+
+    @*<nav>
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" asp-action="Index" asp-route-pageNum="1">1</a></li>
+            <li class="page-item"><a class="page-link" asp-action="Index" asp-route-pageNum="2">2</a></li>
+            <li class="page-item"><a class="page-link" asp-action="Index" asp-route-pageNum="3">3</a></li>
+        </ul>
+    </nav>*@
+</div>
