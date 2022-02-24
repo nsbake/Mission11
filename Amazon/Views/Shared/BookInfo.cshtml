@@ -21,6 +21,14 @@
                 <li>Category: @Model.Category</li>
                 <li>Number of Pages: @Model.PageCount</li>
             </ul>
+
+            <form method="post" asp-page="/Cart">
+                <input type="hidden" asp-for="@Model.BookId" />
+                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                <span class="card-text">
+                    <button type ="submit" class="btn btn-primary btn-sm float-end">Add to Cart</button>
+                </span>
+            </form>
         </div>
     </div>
 </div>
