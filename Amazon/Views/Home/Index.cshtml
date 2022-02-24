@@ -4,29 +4,14 @@
 @model BooksViewModel
 
 <div class="container">
-    <h1>Fake Amazon</h1>
     <h2>Books</h2>
     <div class="row">
         @foreach (Book b in Model.Books)
         {
-            <div class="col-6 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">@b.Title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">@b.Author</h6>
-                        <ul>
-                            <li>Publisher: @b.Publisher</li>
-                            <li>ISBN: @b.Isbn</li>
-                            <li>Classification/Category: @b.Classification/@b.Category</li>
-                            <li>Number of Pages: @b.PageCount</li>
-                            <li>Price: $@b.Price</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <partial name="BookInfo" model="b"/>
         }
     </div>
-    <div page-model="@Model.PageInfo" page-action="Index">
+    <div page-model="@Model.PageInfo" page-action="Index" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-dark" page-class-enabled="true" class="btn-group pull-right m-1">
 
     </div>
 
