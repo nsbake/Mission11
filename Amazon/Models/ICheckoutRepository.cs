@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Linq;
+
 namespace Amazon.Models
 {
-    public class ICheckoutRepository
+    public interface ICheckoutRepository
     {
-        public ICheckoutRepository()
-        {
-        }
+        IQueryable<Checkout> checkouts { get; }
+
+        void SaveCheckout(Checkout checkout);
     }
 }

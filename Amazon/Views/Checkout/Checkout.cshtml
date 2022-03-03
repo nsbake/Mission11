@@ -3,3 +3,50 @@
 *@
 @{
 }
+
+@model Checkout
+<h2>Checkout Now</h2>
+<p>Please enter your info so we can ensure you receive your items.</p>
+
+<form method="post" asp-action="Checkout">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <h4>Ship To</h4>
+    <div class="form-group my-1">
+        <label asp-for="Name">Name: </label><input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group my-1">
+        <label asp-for="PhoneNumber">Phone Number: </label><input asp-for="PhoneNumber" class="form-control" />
+    </div>
+    <div class="form-group my-1">
+        <label asp-for="Email">E-mail Address: </label><input asp-for="Email" class="form-control" />
+    </div>
+
+    <br />
+    <h4>Address</h4>
+    <div class="form-group my-1">
+        <label asp-for="AdressLine1">Adress Line 1: </label><input asp-for="AdressLine1" class="form-control" />
+    </div>
+    <div class="form-group my-1">
+        <label asp-for="AdressLine2">Adress Line 2: </label><input asp-for="AdressLine2" class="form-control" />
+    </div>
+    <div class="form-group my-1">
+        <label asp-for="AdressLine3">Adress Line 3: </label><input asp-for="AdressLine3" class="form-control" />
+    </div>
+    <div class="form-group my-1">
+        <label asp-for="City">City: </label><input asp-for="City" class="form-control" />
+    </div>
+    <div class="form-group my-1">
+        <label asp-for="State">State: </label><input asp-for="State" class="form-control" />
+    </div>
+    <div class="form-group my-1">
+        <label asp-for="Zip">Zip: </label><input asp-for="Zip" class="form-control" />
+    </div>
+    <div class="form-group my-1">
+        <label asp-for="Country">County: </label><input asp-for="Country" class="form-control" />
+    </div>
+
+    <div class="float-end">
+        <input class="btn btn-primary" type="submit" value="Confirm Checkout" />
+    </div>
+</form>
