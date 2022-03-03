@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Fake Amazon</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -21,15 +21,29 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                     </ul>
                 </div>
+                @{
+                    SessionCart session = Context.Session.GetJson<SessionCart>("Cart") ?? new SessionCart();
+
+                    <partial name="CartData" model="session" />
+                }
             </div>
         </nav>
     </header>
     <div class="container">
-        @RenderBody()
+        <div class="row m-1 p-1">
+            <div id="types" class="col-3">
+                <vc:types></vc:types>
+            </div>
+            <div class="col-9">
+                <div>
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

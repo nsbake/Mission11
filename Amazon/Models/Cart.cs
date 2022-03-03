@@ -39,6 +39,13 @@ namespace Amazon.Models
             Items.Clear();
         }
 
+        public int TotalItems()
+        {
+            int sum = Items.Sum(x => x.Quantity);
+
+            return sum;
+        }
+
         public double CalcTotal()
         {
             double sum = Items.Sum(x => x.Quantity * x.Book.Price);
