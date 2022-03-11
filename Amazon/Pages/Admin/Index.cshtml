@@ -1,0 +1,19 @@
+﻿@page "/admin"
+@model Amazon.Pages.Admin.IndexModel
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Amazon Admin</title>
+    <link href="~/lib/css/bootstrap.min.css" rel="stylesheet" />
+    <base href="/" />
+</head>
+
+<body>
+    <component type="typeof(Amazon.Pages.Admin.Routed)" render-mode="Server" />
+    <script src="/_framework/blazor.server.js" ></script>
+</body>
+</html>

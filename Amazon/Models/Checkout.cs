@@ -39,5 +39,8 @@ namespace Amazon.Models
 
         [Required(ErrorMessage = "Please enter country")]
         public string Country { get; set; }
+
+        [ BindNever ]
+        public bool PaymentReceived { get; set; }
     }
 }

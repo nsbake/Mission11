@@ -21,6 +21,7 @@
     <None Remove="Views\Shared\Components\Types\" />
     <None Remove="Pages\" />
     <None Remove="Views\Checkout\" />
+    <None Remove="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -36,6 +37,7 @@
     <Folder Include="Views\Shared\Components\Types\" />
     <Folder Include="Pages\" />
     <Folder Include="Views\Checkout\" />
+    <Folder Include="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

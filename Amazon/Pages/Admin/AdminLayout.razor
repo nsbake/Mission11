@@ -1,0 +1,25 @@
+﻿@inherits LayoutComponentBase
+
+<div>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Amazon Admin Page</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</div>
+<div class="container-fluid">
+    <div class="row p-2">
+        <div class="col-3 d-grid">
+            <NavLink class="btn btn-outline-secondary" href="/admin/orders" ActiveClass="btn-secondary text-white" Match="NavLinkMatch.Prefix">Orders</NavLink>
+            <NavLink class="btn btn-outline-secondary" href="/admin/books" ActiveClass="btn-secondary text-white" Match="NavLinkMatch.Prefix">Books</NavLink>
+        </div>
+
+        <div class="col">
+            @Body
+        </div>
+    </div>
+</div>
