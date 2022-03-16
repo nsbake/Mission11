@@ -1,7 +1,38 @@
 ﻿@page "/admin/orders"
+@inherits OwningComponentBase<ICheckoutRepository>
 
-<h3>Orders</h3>
+<OrderTable TableTitle="Uncollected Payments" Orders="UncollectedPayments" ButtonLabel="Collected" OrderSelected="CollectOrder"></OrderTable>
+
+<OrderTable TableTitle="Collected Payments" Orders="CollectedPayments" ButtonLabel="Reset" OrderSelected="ResetOrder"></OrderTable>
+
+<button class="btn btn-info" @onclick="@(x => UpdateData())">Refresh Data</button>
 
 @code {
+    public ICheckoutRepository repo => Service;
 
+    public IEnumerable<Checkout> AllOrders { get; set; }
+    public IEnumerable<Checkout> UncollectedPayments { get; set; }
+    public IEnumerable<Checkout> CollectedPayments { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        AllOrders = await repo.checkouts.ToListAsync();
+        UncollectedPayments = AllOrders.Where(x => !x.PaymentReceived);
+        CollectedPayments = AllOrders.Where(x => x.PaymentReceived);
+    }
+
+    public void CollectOrder(int id) => UpdateOrder(id, true);
+    public void ResetOrder(int id) => UpdateOrder(id, false);
+
+    public void UpdateOrder(int id, bool donated)
+    {
+        Checkout o = repo.checkouts.FirstOrDefault(x => x.CheckoutID == id);
+        o.PaymentReceived = donated;
+        repo.SaveCheckout(o);
+    }
 }
