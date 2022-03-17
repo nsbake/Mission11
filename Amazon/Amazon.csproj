@@ -22,6 +22,8 @@
     <None Remove="Pages\" />
     <None Remove="Views\Checkout\" />
     <None Remove="Pages\Admin\" />
+    <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <None Remove="Views\AccountInfo\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -38,6 +40,7 @@
     <Folder Include="Pages\" />
     <Folder Include="Views\Checkout\" />
     <Folder Include="Pages\Admin\" />
+    <Folder Include="Views\AccountInfo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
@@ -50,5 +53,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.22" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.22" />
   </ItemGroup>
 </Project>
